@@ -1,7 +1,11 @@
 import './Header.scss';
 import 'boxicons';
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
+    const handleClick = (event) => {
+        event.preventDefault();
+      };
     return (
         <>
             <div className="topHeader">
@@ -20,22 +24,28 @@ export const Header = () => {
                     </div>
                 </div>
                 <div className="icons">
-                    <box-icon type='logo' name='facebook' color="#f31443"></box-icon>
-                    <box-icon type='logo' name='twitter' color="#f31443"></box-icon>
-                    <box-icon type='logo' name='youtube' color="#f31443"></box-icon>
+                    <a href="https://www.facebook.com/">
+                        <box-icon type='logo' name='facebook' color="#f31443"></box-icon>
+                    </a>
+                    <a href="https://x.com/i/flow/login">
+                        <box-icon type='logo' name='twitter' color="#f31443"></box-icon>
+                    </a>
+                    <a href="https://www.youtube.com/">
+                        <box-icon type='logo' name='youtube' color="#f31443"></box-icon>
+                    </a>
                     <box-icon type='logo' name='instagram' color="#f31443"></box-icon>
                 </div>
             </div>
             <div className="bottomHeader">
-                <a href="/">
+                <a href="/" onClick={handleClick}>
                     <img src="assets/logo.png" alt="" />
                 </a>
                 <ul className="right">
-                    <li><a href="/" className='defaultActive'>Home</a></li>
-                    <li><a href="/">About</a></li>
-                    <li><a href="/">Services</a></li>
-                    <li><a href="/">Contact</a></li>
-                    <li><a href="/">Login</a></li>
+                    <li><Link to="/" className='defaultActive'>Home</Link></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#service">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><Link to="/login">Login</Link></li>
                 </ul>
             </div>
         </>
