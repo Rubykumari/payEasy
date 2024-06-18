@@ -4,7 +4,6 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 
-
 export const Carousel = () => {
     const options = {
         loop: true,
@@ -63,22 +62,30 @@ export const BankCarousel = () => {
         <>
             <div className="bankSlider">
                 <div className="container">
-                    <h3>Banks Who Trust Us</h3>
-                    <div className="bankCarousel">
-                        <OwlCarousel className="owl-theme" {...features}>
-                            <div className="item slide1">
-                                <img src="/assets/FinoBank.jpeg" alt="" />
+                    <div className="row">
+                        <div className="col-md-3 col-sm-12">
+                            <div className="logoText">
+                                <h3>Banks Who Trust Us</h3>
                             </div>
-                            <div className="item slide2">
-                                <img src="/assets/bob.png" alt="" />
+                        </div>
+                        <div className="col-md-9 col-sm-12">
+                            <div className="bankCarousel">
+                                <OwlCarousel className="owl-theme" {...features}>
+                                    <div className="item slide1">
+                                        <img src="/assets/FinoBank.jpeg" alt="" />
+                                    </div>
+                                    <div className="item slide2">
+                                        <img src="/assets/bob.png" alt="" />
+                                    </div>
+                                    <div className="item slide3">
+                                        <img src="/assets/AirtelBank.jpeg" alt="" />
+                                    </div>
+                                    <div className="item slide4">
+                                        <img src="/assets/ICICIBank.png" alt="" />
+                                    </div>
+                                </OwlCarousel>
                             </div>
-                            <div className="item slide3">
-                                <img src="/assets/AirtelBank.jpeg" alt="" />
-                            </div>
-                            <div className="item slide4">
-                                <img src="/assets/ICICIBank.png" alt="" />
-                            </div>
-                        </OwlCarousel>
+                        </div>
                     </div>
                 </div>
             </div>

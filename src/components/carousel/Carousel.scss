@@ -1,10 +1,10 @@
-.bannerSlider{
+.bannerSlider {
     .owl-theme {
         .item {
             position: relative;
             background-size: cover;
             height: 80vh;
-        
+
             &::before {
                 position: absolute;
                 content: '';
@@ -15,7 +15,7 @@
                 background: -webkit-gradient(linear, left top, right top, color-stop(30%, rgba(255, 255, 255, 0.875958)), to(rgba(255, 255, 255, 0.37034)));
                 background: linear-gradient(90deg, rgba(255, 255, 255, 0.875958) 30%, rgba(255, 255, 255, 0.37034) 100%);
             }
-        
+
             .caption {
                 position: relative;
                 z-index: 2;
@@ -23,13 +23,13 @@
                 max-width: 850px;
                 margin: auto;
                 top: 15%;
-        
+
                 h1 {
                     font-size: 50px;
                     margin-bottom: 15px;
                     animation: fadeInLeft ease 2s;
                 }
-        
+
                 p {
                     font-size: 18px;
                     margin-bottom: 30px;
@@ -40,24 +40,26 @@
                 }
             }
         }
+
         .slide1 {
             background-image: url('../../../public/assets/banner-bg1.jpeg');
         }
-        
+
         .slide2 {
             background-image: url('../../../public/assets/banner-2.jpeg');
         }
-        
+
         .slide3 {
             background-image: url('../../../public/assets/banner-bg3.jpeg');
         }
+
         .owl-dot {
             span {
                 background: #482e9b !important;
                 -webkit-transition: .5s all ease;
                 transition: .5s all ease !important;
             }
-    
+
             &.active {
                 span {
                     background: #f31443 !important;
@@ -65,15 +67,17 @@
                 }
             }
         }
-    
+
     }
 }
-.bankSlider{
+
+.bankSlider {
     background-color: #fcf9f7;
     padding-top: 50px;
     padding-bottom: 80px;
     position: relative;
-    &::before{
+
+    &::before {
         position: absolute;
         content: '';
         left: 0;
@@ -83,33 +87,47 @@
         border-top: 172px solid #482e9b;
         border-right: 70px solid transparent;
     }
-    .container{
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-        align-items: center;
-        h3{
-            position: relative;
+
+    .container {
+        .row {
+            align-items: center;
+        }
+
+        h3 {
             margin-bottom: 0;
             color: #fff;
             font-size: 22px;
-            flex: 30%;
+            position: relative;
         }
-        .bankCarousel{
-            width: 70%;
-            .item{
+
+        .bankCarousel {
+            .item {
                 img {
                     position: relative;
                     background-size: cover;
-                    height: 35px;
-                    width: 165px;
+                    height: 50px;
+                    width: 169px;
                     padding: 0 9px;
                 }
             }
 
-            .owl-dots{
+            .owl-dots {
                 display: none;
             }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .bankSlider {
+        &::before {
+            border-top: none;
+
+        }
+        h3{
+            bottom: 20px;
+            text-align: center;
+            color: #482e9b!important;
         }
     }
 }
