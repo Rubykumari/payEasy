@@ -2,41 +2,76 @@ import './Carousel.scss';
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+import 'animate.css/animate.min.css';
+import { useRef } from 'react';
 
 
 export const Carousel = () => {
+    
     const options = {
         loop: true,
         margin: 10,
         autoplay: true,
-        autoplayTimeout: 5000,
+        autoplayTimeout: 3000,
+        smartSpeed: 450,
         responsive: {
             400: {
                 items: 1
             }
         }
     };
+
+    const carouselRef = useRef(null);
+    const handleTranslate = () => {
+        const items = document.querySelectorAll('.owl-item');
+        items.forEach(item => {
+            const content = item.querySelector('.captionText');
+            if (content) {
+                content.classList.remove('animate__animated', 'animate__fadeInLeft');
+            }
+        });
+    };
+
+    const handleTranslated = () => {
+        const activeItems = document.querySelectorAll('.owl-item.active');
+        activeItems.forEach(item => {
+            const content = item.querySelector('.captionText');
+            if (content) {
+                content.classList.add('animate__animated', 'animate__fadeInLeft');
+            }
+        });
+    };
     return (
         <div className="bannerSlider">
-            <OwlCarousel className="owl-theme" {...options}>
+            <OwlCarousel className="owl-theme" 
+            {...options} 
+            onTranslate={handleTranslate} onTranslated={handleTranslated}
+            ref={carouselRef}
+            >
                 <div className="item slide1">
                     <div className="caption">
-                        <h1>Make your Online Payment <br />Safer &amp; Comfortable</h1>
-                        <p>Offer payment methods flexibility. Customers prefer a variety of payment options at the checkout.</p>
+                        <div className="captionText">
+                            <h1>Make your Online Payment <br />Safer &amp; Comfortable</h1>
+                            <p>Offer payment methods flexibility. Customers prefer a variety of payment options at the checkout.</p>
+                        </div>
                         <a className="common-btn" href="/">Let's Start Now</a>
                     </div>
                 </div>
                 <div className="item slide2">
                     <div className="caption">
-                        <h1>Your Success Is Our Ultimate Duty</h1>
-                        <p>Is to firmly decide that you are with the company, industry and business that you want to be with.</p>
+                        <div className="captionText" >
+                            <h1>Your Success Is Our Ultimate Duty</h1>
+                            <p>Is to firmly decide that you are with the company, industry and business that you want to be with.</p>
+                        </div>
                         <a className="common-btn" href="/">Let's Start Now</a>
                     </div>
                 </div>
                 <div className="item slide3">
                     <div className="caption">
-                        <h1>Investment Company With Experience</h1>
-                        <p>An investment company is a trust or entity that collects capital from various investors and invests the pooled money in a range of financial securities.</p>
+                        <div className="captionText">
+                            <h1>Investment Company With Experience</h1>
+                            <p>An investment company is a trust or entity that collects capital from various investors and invests the pooled money in a range of financial securities.</p>
+                        </div>
                         <a className="common-btn" href="/">Let's Start Now</a>
                     </div>
                 </div>
